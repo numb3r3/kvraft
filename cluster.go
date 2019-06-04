@@ -36,7 +36,7 @@ func newRaftTransport(opts *options) (*raft.NetworkTransport, error) {
 func newRaftNode(opts *options, ctx *stCachedContext) (*raftNodeInfo, error) {
 	raftConfig := raft.DefaultConfig()
 	raftConfig.LocalID = raft.ServerID(opts.raftTCPAddress)
-	raftConfig.Logger = log.New(os.Stderr, "raft: ", log.Ldate|log.Ltime)
+	// raftConfig.Logger = log.New(os.Stderr, "raft: ", log.Ldate|log.Ltime)
 	raftConfig.SnapshotInterval = 20 * time.Second
 	raftConfig.SnapshotThreshold = 2
 	leaderNotifyCh := make(chan bool, 1)
