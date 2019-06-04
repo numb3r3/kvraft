@@ -5,13 +5,10 @@ REVISION := $(shell git rev-parse --short HEAD)
 PROJECT_ROOT := $(shell pwd)
 
 # All go source files
-# SOURCES := $(shell find . -name '*.go' -not -name '*_test.go')
-#
-#
-
+SOURCES := $(shell find . -name '*.go' -not -name '*_test.go')
 
 build:
-	go build -o kvraft main.go
+	go build -o kvraft ${SOURCES}
 
 test:
 	go test -v ./...
